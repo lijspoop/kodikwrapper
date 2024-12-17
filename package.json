@@ -2,18 +2,29 @@
   "name": "kodikwrapper",
   "version": "3.0.3",
   "description": "A kodikapi.com wrapper for Node.JS",
-  "type": "commonjs",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "unpkg": "dist/index.global.js",
+  "jsdelivr": "dist/index.global.js",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": {
         "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
+        "node": "./dist/index.esm.js",
+        "default": "./dist/index.esm.js"
       },
       "require": {
         "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "node": {
+          "production": "./dist/index.cjs.prod.js",
+          "development": "./dist/index.cjs.js",
+          "default": "./dist/index.cjs.js"
+        },
+        "default": "./dist/index.cjs.js"
       }
     }
   },
